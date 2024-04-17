@@ -1,0 +1,130 @@
+<%- include('./partials/head', {current: '/opdracht-aanmelden'}); %>
+
+<header class="smallHeader">
+    <h3 class="smallTitle">Maak je eigen initiatief aan</h3>
+    <h1 class="title">Formulier</h1>
+</header>
+
+<main>
+    <section class="container padding5">
+        <div class="gridForm">
+            <form id="aanmeldForm" method="POST" action="/" >
+
+                <fieldset>
+                    <div>
+                        <legend>Persoonlijke gegevens</legend>
+                        <h3 class="smallTitle">Stap 1</h3>
+                    </div>
+                   
+                    <div class="col2">
+                        <div>
+                            <label class="req" for="name">Voornaam</label>
+                            <input type="text" id="name" name="name" required placeholder="Naam"/>
+                        </div>
+                        
+                        <div>
+                            <label class="req" for="surname">Achternaam</label>
+                            <input type="text" id="surname" name="surname" required placeholder="Achternaam"/>
+                        </div>
+                    </div>
+                    
+        
+                    <label class="req" for="email">E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="naam@email.com" required>
+        
+                    <label class="req" for="vraagAanbod">Vraag of aanbod?</label>
+
+                        <div>
+                            <input type="radio" name="vraagAanbod" value="Vraag">
+                            <label for="vraag">Vraag</label>
+                        </div>
+                        
+                        <div>
+                            <input type="radio" name="vraagAanbod" value="Aanbod">
+                            <label for="aanbod">Aanbod</label>
+                        </div>
+                    
+        
+                    <label class="req" for="buurt-select">In welke buurt woont u?:</label>
+                    <div class="col2">
+                        <select name="buurt" id="buurt-select" required>
+                            <option value="">--Kies een buurt--</option>
+                            <option value="bos-en-lommer">Bos en Lommer</option>
+                            <option value="westerpark">Westerpark</option>
+                            <option value="de-baarsjes">De Baarsjes</option>
+                            <option value="oud-west">Oud West</option>
+                            <option value="nieuw-west">Nieuw West</option>
+                        </select>
+                    </div>
+                </fieldset>
+        
+                <fieldset>
+                    <div>
+                        <legend>Initiatief informatie</legend>
+                        <h3 class="smallTitle">Stap 2</h3>
+                    </div>
+        
+                    <label class="req" for="name">
+                        Titel initiatief
+                    </label>
+                    <input type="text" name="titel" placeholder="Titel initiatief" required>
+        
+                    <label class="req" for="description"></label>
+                    <textarea name="description" id="description" cols="30" rows="10" placeholder="Beschrijf uw initiatief" required></textarea>
+        
+                    <label for="category">Kies uw categoriën:</label>
+                    <div>
+                        <label for="tuin"><input type="checkbox" name="category" id="tuin" value="Tuin"><span>Tuin</span></label>
+                        <label for="feest"><input type="checkbox" name="category" id="feest" value="Feest"><span>Feest</span></label>
+                        <label for="voertuig">
+                            <input type="checkbox" name="category" id="voertuig" value="Voertuig">
+                            <span>Voertuig</span>
+                        </label>
+                        <label for="hulp"><input type="checkbox" name="category" id="hulp" value="Hulp"><span>Hulp</span></label>
+                        <label for="buiten"><input type="checkbox" name="category" id="buiten" value="Buiten"><span>Buiten</span></label>
+                        <label for="binnen"><input type="checkbox" name="category" id="binnen" value="Binnen"><span>Binnen</span></label>
+                    </div>
+                    
+                    <label for="image">Upload afbeelding</label>
+                    <input type="file" id="image" name="image" accept="image/png, image/jpeg" />
+                </fieldset>
+        
+                <fieldset>
+                    <div>
+                        <legend>Locatie en tijd</legend>
+                        <h3 class="smallTitle">Stap 3</h3>
+                    </div>
+        
+                    <div class="col2">
+                        <div>
+                            <label for="start">Start datum:</label>
+                            <input type="date" id="start" name="trip-start" value="2024-03-20" min="2024-03-20" max="2026-03-20" />
+                        </div>   
+                        <div>
+                            <label for="end">Eind datum:</label>
+                            <input type="date" id="start" name="trip-start" value="2024-03-20" min="2024-03-20" max="2026-03-20" />
+                        </div>   
+                    </div>
+                   
+
+                    <div class="col2">
+                        <div>
+                            <label for="time">Start tijd</label>
+                            <input type="time">
+                        </div>
+                        <div>
+                            <label for="time">Eind tijd</label>
+                            <input type="time">
+                        </div>
+                    </div>
+                    
+                    <button class="btn" type="submit">Verzend</button>
+
+                </fieldset>
+        
+            </form>
+        </div>
+    </section>
+</main>
+
+<%- include('./partials/foot') %>

@@ -1,0 +1,36 @@
+<%- include('./partials/head', {current: '/contact'}); %>
+
+<header class="contact">
+
+    <section class="container">
+        <div>
+            <article>
+                <h3 class="smallTitle">Buurt initiatieven Amsterdam West</h3>
+                <h1>Vragen? Stuur ons een bericht</h1>
+                
+                <p>Heb je vragen over onze buurtinitiatieven of wil je meer weten over hoe je kunt deelnemen? Aarzel niet om contact met ons op te nemen!</p>
+            </article>
+
+            <article>
+                <form action="">
+                    <label for="name">
+                        <input type="text" name="name" id="name" placeholder="Naam">
+                    </label>
+                    <label for="email">
+                        <input type="text" name="email" id="name" placeholder="Email">
+                    </label>
+            
+                    <label for="message">
+                        <textarea name="message" id="message" cols="30" rows="5" placeholder="Bericht"></textarea>
+                    </label>
+        
+                    <button type="submit">Verstuur</button>
+                </form>
+            </article>
+        </div>
+    </section>
+
+</header>
+
+
+<%- include('./partials/foot') %>

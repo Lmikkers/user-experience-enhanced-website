@@ -1,0 +1,113 @@
+<%- include('./partials/head', {current: '/'}); %>
+
+<header class="home">
+    <article>   
+        <div>
+            <h2 class="smallTitle">Platform</h2>
+            <h1 class="title">Buurt Initiatieven Amsterdam west</h1>
+            <a class="btn" href="#down">Bekijk initiatieven</a>
+        </div>
+    </article>
+    <div>
+        <!-- Nu heeft de div een background image dit nog veranderen naar de img tag zodat dit dynamisch kan met de api data -->
+        <img src="" alt="">
+    </div>
+</header>
+
+<main class="home">
+    <article id="down">
+        <blockquote>Initiatieven zijn vaak lastig te vinden. Om dit probleem op te lossen is dit digitaal platform ontwikkeld met een verzameling van diverse Buurtinitiatieven</blockquote>
+    </article>
+
+    <section class="services container">
+        
+        <div class="center">
+            <h3 class="smallTitle">Vraag en aanbod</h3>
+            <h2>Buurtinitatieven</h2>
+        </div>
+
+        <!-- Hier komen 3 initiatieven van type vraag te staan -->   
+        <section>
+            <h3 class="type">Vraag</h3>
+
+            <div class="items">
+
+                <% const threeItems = services.slice(1, 3); %>
+
+                <% services.forEach(function(service) { %>
+
+                    <!-- Laat alleen de service zien als het type een vraag is -->
+                    <% if (service.type == 'vraag' ) { %>
+    
+                        <article>
+                            <% if (service.image) { %>
+                                <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
+                            <% } %>
+                            
+                            <div class="description">
+                                
+                                <% if (service.start_date) { %>
+                                    <p>
+                                        <span><%= service.start_date %> - <%= service.end_date %></span>
+                                    </p>
+                                <% } %>
+
+                                <a href="/vraag-aanbod/<%= service.id %>"><h3><%= service.title %></h3></a>
+                               
+                                
+                                <p><%- service.short_description %></p>
+                            </div>
+                        </article>
+
+                    <% } %>
+
+                <% }) %>
+            </div>
+        </section>    
+        
+
+        <section>
+            <h3 class="type">Aanbod</h3>
+            <!-- Hier komen 3 initiatieven van type vraag te staan -->
+            <div class="items">
+                <% services.forEach(function(service) { %>
+                    <!-- Laat alleen de service zien als het type een vraag is -->
+                    <% if (service.type == 'aanbod' ) { %>
+    
+                        <article>
+                            <% if (service.image) { %>
+                                <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
+                            <% } %>
+                            
+                            <div class="description">
+                                <a href="/vraag-aanbod/<%= service.id %>"><h3><%= service.title %></h3></a>
+                                <p>
+                                    <span><%= service.start_date %> - <%= service.end_date %></span>
+                                </p>
+                                
+                                <p><%- service.short_description %></p>
+                            </div>
+                            
+                        </article>
+    
+                    <% } %>
+                <% }) %>
+            </div>
+        </section>
+
+        <a href="/vraag-aanbod">Bekijk vraag en aanbod ></a>
+        
+    </section>
+
+
+    <section class="opdrachtAanvragen">
+        <div>
+            <h2>Zelf een opdracht aanvragen?</h2>
+            <p>Wil je iets vragen aan je mede-Amsterdammers of heb je iets aan te bieden aan de gemeenschap? Dat kan hier! Klik op de onderstaande knop om je vraag of aanbod te delen met de buurt. Samen maken we Amsterdam West een nog betere plek om te wonen.</p>
+    
+            <a class="btn" href="/opdracht-aanmelden">Aanvragen</a>
+        </div>
+    </section>
+</main>
+
+<%- include('./partials/foot') %>

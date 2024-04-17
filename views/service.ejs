@@ -1,0 +1,101 @@
+<%- include('./partials/head', {current: '/vraag-aanbod'}); %>
+
+<header class="detailHeader">
+    <div class="container">
+        <article>
+            <h2><%= service.type %></h2>
+            <h1><%= service.title %></h1>
+
+            <div class="description">
+                <%- service.long_description %>
+            </div>
+    
+            <a class="btn" href="#">Lees meer</a>
+        </article>
+    
+        <article>
+            <div>
+                <% if (service.image) { %>
+                    <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
+                <% } %>
+            </div>
+        </article>
+    </div>
+</header>
+
+<main class="detail">
+
+    <section class="contactBlock">    
+        <div class="container">
+            <article>
+                <div class="alignCenter">
+                    <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>" alt="Foto van de contactpersoon">
+                </div>
+        
+                <div>
+                    <h3>Robert de Groot</h3>
+                    <p>Ik ben Robert, een enthousiaste bewoner van Amsterdam West. Ik stel me graag voor en bied een initiatief aan: maandelijkse buurtbarbecues in het park. Laten we samenkomen, genieten van lekker eten en de banden in onze buurt versterken!</p>
+                </div>
+
+                <button>Contact</button>
+            </article>
+        </div>
+    </section>
+    
+    <!-- RELATED PROJECTS -->
+    <section class="center relatedProjects">
+        <h2>Gerelateerde projecten</h2>
+        <p>Bekijk hieronder iniatieven van buurtbewoners die bij dit initiatief hoort</p>
+
+        <ul>
+             <!-- for each loop van categoriën moet hier nog komen -->
+            <li>
+                <img src="/public/assets/images/deHallenGreen.png" alt="">
+
+                <h3>Naam titel</h3>
+                <p>Korte beschrijving</p>
+            </li>
+            <li>
+                <img src="" alt="">
+
+                <h3>Naam titel</h3>
+                <p>Korte beschrijving</p>
+            </li>
+            <li>
+                <img src="" alt="">
+
+                <h3>Naam titel</h3>
+                <p>Korte beschrijving</p>
+            </li>
+        </ul>
+       
+    </section>
+    <!-- EINDE RELATED PROJECTS -->
+    
+    <!-- KAART VAN DE BUURT -->
+    <section class="map container">
+        <h3 class="smallTitle">Bekijk de buurt</h3>
+        <h2>Amsterdam West</h2>
+        <h4><%- service.neighbourhood %></h4>
+        
+        <a class="more" href="/buurt">Iniatieven van jouw buurt bekijken?</a>
+        
+        <img src="/assets/images/mapAmsterdamWest.svg" alt="Kaart van de buurt">
+        
+        
+    </section>
+    <!-- EINDE KAART VAN DE BUURT -->
+    
+    <!-- OPDRACHT AANVRAGEN -->
+    <section class="opdrachtAanvragen">
+        <div>
+            <h2>Zelf een opdracht aanvragen?</h2>
+            <p>Wil je iets vragen aan je mede-Amsterdammers of heb je iets aan te bieden aan de gemeenschap? Dat kan hier! Klik op de onderstaande knop om je vraag of aanbod te delen met de buurt. Samen maken we Amsterdam West een nog betere plek om te wonen.</p>
+    
+            <a class="btn" href="/contact">Aanvragen</a>
+        </div>
+    </section>
+    <!-- EINDE OPDRACHT AANVRAGEN -->
+</main>
+
+<%- include('./partials/foot') %>
