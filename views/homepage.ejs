@@ -32,36 +32,9 @@
 
             <div class="items">
 
-                <% const threeItems = services.slice(1, 3); %>
-
-                <% services.forEach(function(service) { %>
-
                     <!-- Laat alleen de service zien als het type een vraag is -->
-                    <% if (service.type == 'vraag' ) { %>
-    
-                        <article>
-                            <% if (service.image) { %>
-                                <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
-                            <% } %>
-                            
-                            <div class="description">
-                                
-                                <% if (service.start_date) { %>
-                                    <p>
-                                        <span><%= service.start_date %> - <%= service.end_date %></span>
-                                    </p>
-                                <% } %>
-
-                                <a href="/vraag-aanbod/<%= service.id %>"><h3><%= service.title %></h3></a>
-                               
-                                
-                                <p><%- service.short_description %></p>
-                            </div>
-                        </article>
-
-                    <% } %>
-
-                <% }) %>
+                    <%- include('./partials/serviceVraag') %>
+                    
             </div>
         </section>    
         
@@ -70,32 +43,12 @@
             <h3 class="type">Aanbod</h3>
             <!-- Hier komen 3 initiatieven van type vraag te staan -->
             <div class="items">
-                <% services.forEach(function(service) { %>
                     <!-- Laat alleen de service zien als het type een vraag is -->
-                    <% if (service.type == 'aanbod' ) { %>
-    
-                        <article>
-                            <% if (service.image) { %>
-                                <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
-                            <% } %>
-                            
-                            <div class="description">
-                                <a href="/vraag-aanbod/<%= service.id %>"><h3><%= service.title %></h3></a>
-                                <p>
-                                    <span><%= service.start_date %> - <%= service.end_date %></span>
-                                </p>
-                                
-                                <p><%- service.short_description %></p>
-                            </div>
-                            
-                        </article>
-    
-                    <% } %>
-                <% }) %>
+                    <%- include('./partials/serviceAanbod') %>
             </div>
         </section>
 
-        <a href="/vraag-aanbod">Bekijk vraag en aanbod ></a>
+        <a class="more" href="/vraag-aanbod">Bekijk vraag en aanbod</a>
         
     </section>
 

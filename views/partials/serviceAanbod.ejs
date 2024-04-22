@@ -1,0 +1,22 @@
+<% services.forEach(function(service) { %>
+    <!-- Laat alleen de service zien als het type een vraag is -->
+    <% if (service.type == 'aanbod' ) { %>
+
+        <article>
+            <% if (service.image) { %>
+                <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
+            <% } %>
+            
+            <div class="cardContent">
+                <a href="/vraag-aanbod/<%= service.id %>"><h3><%= service.title %></h3></a>
+                <p>
+                    <span><%= service.start_date %> - <%= service.end_date %></span>
+                </p>
+                
+                <p><%- service.short_description %></p>
+            </div>
+            
+        </article>
+
+    <% } %>
+<% }) %>

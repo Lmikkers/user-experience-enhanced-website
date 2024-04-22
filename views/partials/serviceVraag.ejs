@@ -1,0 +1,55 @@
+<% services.forEach(function(service) { %>
+
+    <!-- Laat alleen de service zien als het type een vraag is -->
+    <% if (service.type == 'vraag' ) { %>
+
+        <article>
+            <% if (service.image) { %>
+                <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
+            <% } %>
+            
+            <div class="cardContent">
+
+                <div class="titleContainer">
+                    <!-- Titel Iniatief/service -->
+                    <a href="/vraag-aanbod/<%= service.id %>">
+                        <h3><%= service.title %></h3>
+                    </a>
+
+                    <!-- Like button -->
+                    <form class="like" action="/" method="post">
+                        <input type="hidden" name="actie" value="like" />
+
+                        <button type="submit">
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <svg version="1.1" id="heartIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 26.6 24.6" style="enable-background:new 0 0 26.6 24.6;" xml:space="preserve">
+                                <g id="groupHeart">
+                                    <rect x="5.3" y="5.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -5.5154 13.3026)" class="heartIcon" width="16" height="16"/>
+                                    <circle class="heartIcon" cx="8" cy="8" r="8"/>
+                                    <circle class="heartIcon" cx="18.6" cy="8" r="8"/>
+                                </g>
+                            </svg>
+                            <!--  likes nummer  -->
+                            <span class="likes"><%= service.likes %> </span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Korte omschrijving -->
+                <p><%- service.short_description %></p>
+
+                <div class="date">
+                    <% if (service.start_date && service.end_date) { %>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="var(--fontColorLight)" d="M21 8.5v9.25A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V8.5zM7.25 15a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5M12 15a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5m-4.75-4.5a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5m4.75 0a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5m4.75 0a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5m1-7.5A3.25 3.25 0 0 1 21 6.25V7H3v-.75A3.25 3.25 0 0 1 6.25 3z"/>
+                        </svg>
+                        <span><%= service.start_date %> | <%= service.end_date %></span>
+                    <% } %>
+                </div>   
+
+            </div>
+        </article>
+
+    <% } %>
+
+<% }) %>
