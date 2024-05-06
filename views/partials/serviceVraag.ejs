@@ -1,5 +1,4 @@
 <% services.forEach(function(service) { %>
-
     <!-- Laat alleen de service zien als het type een vraag is -->
     <% if (service.type == 'vraag' ) { %>
 
@@ -19,6 +18,7 @@
                     <!-- Like button -->
                     <form class="like" action="/" method="post">
                         <input type="hidden" name="actie" value="like" />
+                        <input type="hidden" name="id" value="<%= service.id %>" />
 
                         <button type="submit">
                             <?xml version="1.0" encoding="utf-8"?>

@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
 }
@@ -10,7 +11,6 @@ body,
 input,
 textarea,
 select {
-    /* font-family: Arial, Helvetica, sans-serif; */
     font-family: "Roboto", sans-serif; 
 }
 :root {
@@ -23,8 +23,8 @@ select {
     --mainColorHover: #d78131;
 
     --lightBackground: #efefef;
-    
 }
+
 
 h1 {
     font-size: 3rem;
@@ -194,6 +194,9 @@ form button {
 }
 
 
+/*  */
+
+
 /* PARTIALS HEAD */
 nav {
     position: fixed;
@@ -203,7 +206,6 @@ nav {
     height: 4rem;
     padding: 0 5rem;
     background-color: #fff;
-    /* background-color: #343434; */
     box-shadow: rgb(0 0 0 / 3%) 0px 4px 6px -1px, rgb(183 183 183 / 6%) 0px 2px 4px -1px;
     
     display: flex;
@@ -297,6 +299,7 @@ article span {
     font-size: 1rem;
     margin-top: 0.5rem;
 }
+
 /* uitzondering dit moet later weg hierdoor zie je het 4e item niet op de home pagina */
 .home .services .items article:nth-child(4) {
     display: none;
@@ -323,7 +326,6 @@ article span {
 }
 .services .items article {
     position: relative;
-    /* background: #fcfcfc; */
     border-radius: 4px;
     overflow: hidden;
     /* box-shadow: rgba(132, 132, 132, 0.15) 0px 5px 15px 0px; */
@@ -407,12 +409,10 @@ form.like span {
 .heartIcon {
     fill: #FF7A6B;
     transition: .2s ease;
-    /* cursor: pointer; */
 }
 #groupHeart:hover .heartIcon {
     fill: red;
 }
-
 /* END LIKE BUTTON */
 
 /* END HOMEPAGE */
@@ -524,12 +524,6 @@ input:required,
 textarea:required {
     border: 1px solid red;
 }
-/* 
-#aanmeldForm input:invalid,
-#aanmeldForm textarea:invalid {
-    border: 1px solid red;
-    background-color: rgb(255, 98, 98);
-} */
 #aanmeldForm input:valid,
 #aanmeldForm textarea:valid {
     border: 1px solid green;
@@ -595,6 +589,9 @@ form h3 {
     margin-bottom: 1rem;
     mask: linear-gradient(rgb(123, 123, 123) calc(100% - 2em), transparent);
 }
+/* END DETAIL PAGINA */
+
+
 /* CONTACT BLOCK */
 .contactBlock {
     width: 100%;
@@ -627,27 +624,12 @@ form h3 {
 }
 /* END CONTACT BLOCK */
 
+
+
 /* RELATED PROJECTS */
 .relatedProjects h2 {
     margin-bottom: 2rem;
 }
-/* .relatedProjects ul {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    list-style: none;
-    overflow-x: scroll;
-    margin-top: 2rem;
-}
-.relatedProjects ul li {
-    background: gainsboro;
-    height: 24rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 2rem;
-} */
-/* END RELATED PROJECTS */
 
 
 .map {
@@ -730,9 +712,6 @@ header.contact {
 .contact label {
     margin-bottom: 0;
 }
-
-
-
 /* END CONTACT */
 
 
@@ -938,3 +917,4 @@ footer ul li {
     }
 }
 /* END RESPONSIVE */
+/* --------------------------------------------------------------------------------------------------------------------------------------- */

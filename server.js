@@ -8,10 +8,14 @@ import express from 'express'
 // Importeer de zelfgemaakte functie fetchJson uit de ./helpers map
 import fetchJson from './helpers/fetch-json.js'
 
-const baseUrl = 'https://fdnd-agency.directus.app/'
+
 
 // Maak een nieuwe express app aan
 const app = express()
+
+const baseUrl = 'https://fdnd-agency.directus.app/'
+
+const likes = []
 
 // Stel ejs in als template engine
 app.set('view engine', 'ejs')
@@ -32,7 +36,8 @@ app.use(express.urlencoded({extended: true}))
 app.get('/', function(request, response) {
 	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
 		response.render('homepage', {
-			services: servicesDataUitDeAPI.data
+			services: servicesDataUitDeAPI.data,
+			likes: likes
 		})
 	});
 })
@@ -50,25 +55,37 @@ app.get('/faq', function(request, response) {
 })
 
 
+
 // POST ROUTE VOOR DE HOMEPAGE
 app.post('/', function(request, response){
-	
+
 	// Haal eerst de huidige gegevens voor deze service op, uit de WHOIS API
-	fetchJson(`${baseUrl}items/dh_services/${request.params.id}`).then(({ data }) => {
+	fetchJson(`${baseUrl}items/dh_services/${request.body.id}`).then(({ data }) => {
 		// Stap 2: Sla de nieuwe data op in de API
 		// Voeg de nieuwe lijst likes toe in de WHOIS API, via een PATCH request
-		fetch(`${baseUrl}items/dh_services/${request.params.id}`, {
+		fetch(`${baseUrl}items/dh_services/${request.body.id}`, {
 		  method: 'PATCH',
 		  body: JSON.stringify({
 			// Likes nog indetificeren
-			// likes: data.likes + 1,
+			likes: data.likes + 1,
 		  }),
 		  headers: {
 			'Content-type': 'application/json; charset=UTF-8',
 		  },
 		}).then((patchResponse) => {
-		  // Redirect naar de home pagina
-		  response.redirect(303, '/')
+		  	// Redirect naar de home pagina
+
+				console.log(request.body)
+
+			if(request.body.enhanced) {
+				response.render('partials/serviceVraag', {
+					services: data,
+				})
+			} else {
+				response.redirect(303, '/')
+			}
+
+		  
 		})
 	  })
 

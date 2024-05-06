@@ -33,7 +33,14 @@
             <div class="items">
 
                     <!-- Laat alleen de service zien als het type een vraag is -->
-                    <%- include('./partials/serviceVraag') %>
+                    <% services.forEach(function(service) { %>
+                        <!-- Laat alleen de service zien als het type een vraag is -->
+                        <% if (service.type == 'vraag' ) { %>
+                            
+                            <%- include('./partials/serviceVraag') %>
+
+                        <% } %>
+                    <% }) %>
                     
             </div>
         </section>    
