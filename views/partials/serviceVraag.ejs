@@ -31,7 +31,7 @@
                                 </g>
                             </svg>
                             <!--  likes nummer  -->
-                            <span class="likes"><%= service.likes %> </span>
+                            <%- include('./likes', {service: service}) %>
                         </button>
                     </form>
                 </div>

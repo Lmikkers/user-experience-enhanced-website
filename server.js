@@ -66,7 +66,6 @@ app.post('/', function(request, response){
 		fetch(`${baseUrl}items/dh_services/${request.body.id}`, {
 		  method: 'PATCH',
 		  body: JSON.stringify({
-			// Likes nog indetificeren
 			likes: data.likes + 1,
 		  }),
 		  headers: {
@@ -74,18 +73,12 @@ app.post('/', function(request, response){
 		  },
 		}).then((patchResponse) => {
 		  	// Redirect naar de home pagina
-
-				console.log(request.body)
-
 			if(request.body.enhanced) {
-				response.render('partials/serviceVraag', {
-					services: data,
-				})
+				response.render('partials/likes', {service: {likes: data.likes + 1}})
 			} else {
 				response.redirect(303, '/')
 			}
-
-		  
+		
 		})
 	  })
 
