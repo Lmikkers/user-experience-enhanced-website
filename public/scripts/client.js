@@ -57,3 +57,48 @@ form.addEventListener('submit', function(event) {
 	// automatisch terug naar de standaard POST, wat prima is.
 	event.preventDefault()
 })
+
+
+
+
+
+var vraagButton = document.querySelector('#vraagButton')
+var vraagContent = document.querySelector('.vraagAanbod')
+
+
+vraagButton.addEventListener('click', showVraagContent)
+
+function showVraagContent() {
+	console.log("klikt op de vraag button");
+
+	vraagContent.classList.toggle('active');
+
+	this.classList.toggle('active');
+}
+
+
+
+var aanbodButton = document.querySelector('#aanbodButton')
+var aanbodContent = document.querySelector('.aanbodContent')
+
+aanbodButton.addEventListener('click', showAanbodContent)
+
+function showAanbodContent() {
+	console.log("klikt op de aanbod button");
+	
+	aanbodContent.classList.toggle('active');
+
+	this.classList.toggle('active');
+}
+
+
+
+var heartIcon = document.querySelector('.heartIcon')
+
+heartIcon.addEventListener('click', liked);
+
+function liked() {
+	console.log("liked");
+
+	this.classList.toggle('liked');
+}

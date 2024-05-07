@@ -366,7 +366,7 @@ article span {
     align-items: center;
     gap: .2rem;
 
-    background: var(--fontColor);
+    background: #FFF;
     padding: .25rem;
     
     border-radius: 4px;
@@ -414,6 +414,54 @@ form.like span {
     fill: red;
 }
 /* END LIKE BUTTON */
+
+.buttonsService {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+.buttonsService > div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+}
+.buttonsService button.active {
+    transition: ease-out;
+    background-color: var(--mainColorHover);
+}
+/* BREADCRUMBS */
+ul.breadcrumb {
+    padding: .5rem 5rem;
+    list-style: none;
+    background-color: var(--lightBackground);
+    /* margin-top: 4rem; */
+    position: absolute;
+    width: 100%;
+  }
+  /* Display list items side by side */
+  ul.breadcrumb li {
+    display: inline;
+  }
+  /* Add a slash symbol (/) before/behind each list item */
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: var(--fontColor);
+    content: "/\00a0";
+  }
+  /* Add a color to all links inside the list */
+  ul.breadcrumb li a {
+    color: var(--mainColor);
+    text-decoration: none;
+  }
+  /* Add a color on mouse-over */
+  ul.breadcrumb li a:hover {
+    color: var(--mainColorHover);
+    text-decoration: underline;
+  }
+/* END BREADCRUMBS */
+
 
 /* END HOMEPAGE */
 
@@ -784,6 +832,14 @@ footer ul {
 }
 footer ul li {
     margin-bottom: .5rem;
+}
+
+.socials {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    gap: 1rem;
 }
 /* END FOOTER */
 

@@ -4,37 +4,21 @@
     <h1 class="title">Vraag & Aanbod</h1>
 </header>
 
+<ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li>Vraag en aanbod</li>
+</ul>
+
 <main class="mBottom">
     <section class="services container">
         
-        <section>
+        <section class="vraagContent">
             <h3 class="type">Vraag</h3>
 
             <div class="items">
-                <% services.forEach(function(service) { %>
-                    <!-- Laat alleen de service zien als het type een vraag is -->
-                    <% if (service.type == 'vraag' ) { %>
-    
-                        <article>
-                            <% if (service.image) { %>
-                                <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
-                            <% } %>
-                            
-                            <div class="cardContent">
-                                
-                                <% if (service.start_date) { %>
-                                    <p>
-                                        <span><%= service.start_date %> - <%= service.end_date %></span>
-                                    </p>
-                                <% } %>
-                                    
-                                <a href="/vraag-aanbod/<%= service.id %>"><h3><%= service.title %></h3></a>
-                                
-                                <p><%- service.short_description %></p>
-                            </div>
-                        </article>
-                    <% } %>
-                <% }) %>
+
+                <%- include('./partials/serviceVraag') %>    
+                    
             </div>
         </section>    
 
