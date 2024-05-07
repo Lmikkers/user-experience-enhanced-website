@@ -10,7 +10,12 @@
     </article>
     <div>
         <!-- Nu heeft de div een background image dit nog veranderen naar de img tag zodat dit dynamisch kan met de api data -->
-        <img src="" alt="">
+        <picture>
+            <source srcset="/assets/images/deHallenGreen.png?format=avif" type="image/avif">
+            <source srcset="/assets/images/deHallenGreen.png?format=webp" type="image/webp">
+            <img src="/assets/images/deHallenGreen.png" alt="Foto van de Hallen Image">
+        </picture>
+
     </div>
 </header>
 
@@ -49,7 +54,7 @@
 
         <section class="aanbodContent">
             <h3 class="type">Aanbod</h3>
-            <!-- Hier komen 3 initiatieven van type vraag te staan -->
+            <!-- Hier komen 3 initiatieven van type aanbod te staan -->
             <div class="items">
                     <!-- Laat alleen de service zien als het type een vraag is -->
                     <%- include('./partials/serviceAanbod') %>

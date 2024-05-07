@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth;
 }
@@ -25,7 +24,6 @@ select {
     --lightBackground: #efefef;
 }
 
-
 h1 {
     font-size: 3rem;
     text-transform: uppercase;
@@ -35,15 +33,6 @@ h1 {
 h2 {
     font-size: 2.25rem;
     text-transform: uppercase;
-}
-.smallTitle {
-    text-transform: uppercase;
-    font-weight: 100;
-    margin-bottom: .75rem;
-}
-.services h3 {
-    text-transform: uppercase;
-    font-weight: 100;
 }
 p {
     color: var(--fontColor);
@@ -55,6 +44,7 @@ a {
     text-decoration: none;
     color: var(--fontColor);
 }
+
 a.more {
     transition: 0.5s ease;
     color: var(--mainColor);
@@ -71,10 +61,10 @@ a.more:hover {
 a.more:hover::after {
     padding-left: 4px;
 }
-
 main a:hover {
     color: var(--fontHoverColor);
 }
+
 img {
     max-width: 100%;
 }
@@ -82,9 +72,6 @@ article img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-nav ul .close {
-    display: none;
 }
 header {
     margin-top: 4rem;
@@ -110,6 +97,15 @@ section > h2,
 section > h3,
 section > h4 {
     text-align: center;
+}
+.smallTitle {
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-bottom: .75rem;
+}
+.services h3 {
+    text-transform: uppercase;
+    font-weight: 100;
 }
 .title {
     color: var(--mainColor);
@@ -194,9 +190,6 @@ form button {
 }
 
 
-/*  */
-
-
 /* PARTIALS HEAD */
 nav {
     position: fixed;
@@ -219,6 +212,9 @@ nav ul {
     align-items: center;
     list-style: none;
     height: 100%;
+}
+nav ul .close {
+    display: none;
 }
 nav ul li {
     display: inline-block;
@@ -243,7 +239,7 @@ nav ul li a.active {
 /* END PARTIALS HEAD */
 
 
-/* HOMEPAGE */
+/* --- HOMEPAGE --- */
 header.home {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -268,9 +264,11 @@ header.home article {
 header.home div:nth-child(2) {
     grid-column: 2;
     grid-row: span 2;
-    background-image: url("/assets/images/deHallenGreen.png");
-    background-position: center;
-    background-size: cover;
+}
+header.home div:nth-child(2) img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 /* BLOCKQUOTE */
 article:has(blockquote) {
@@ -328,16 +326,13 @@ article span {
     position: relative;
     border-radius: 4px;
     overflow: hidden;
-    /* box-shadow: rgba(132, 132, 132, 0.15) 0px 5px 15px 0px; */
-    
     transition: all .2s ease-in-out;
 }
 .services .items article:hover {
     transform: scale(1.1);
 }
-
-
-.services .items article > img:first-of-type {
+.services .items article > img:first-of-type,
+.services .items article picture img {
     border-radius: 4px;
     height: 16rem;
 }
@@ -354,7 +349,6 @@ article span {
     text-transform: unset;
     font-weight: unset;
 }
-
 
 .cardContent .date {
     position: absolute;
@@ -375,6 +369,7 @@ article span {
     font-size: .8rem;
     margin-top: 0;
 }
+
 /* LIKE BUTTON */
 .cardContent .titleContainer {
     margin-top: .5rem;
@@ -385,7 +380,6 @@ article span {
     justify-content: space-between;
     gap: .5rem;
 }
-
 form.like button:has(img),
 form.like button:has(svg) {
     background: unset;
@@ -405,7 +399,6 @@ form.like button svg{
 form.like span {
     margin: unset;
 }
-
 .heartIcon {
     fill: #FF7A6B;
     transition: .2s ease;
@@ -431,12 +424,12 @@ form.like span {
     transition: ease-out;
     background-color: var(--mainColorHover);
 }
+
 /* BREADCRUMBS */
 ul.breadcrumb {
     padding: .5rem 5rem;
     list-style: none;
     background-color: var(--lightBackground);
-    /* margin-top: 4rem; */
     position: absolute;
     width: 100%;
   }
@@ -461,9 +454,7 @@ ul.breadcrumb {
     text-decoration: underline;
   }
 /* END BREADCRUMBS */
-
-
-/* END HOMEPAGE */
+/* --- END HOMEPAGE --- */
 
 
 /* OPDRACHT AANVRAGEN BLOK */
@@ -486,7 +477,7 @@ ul.breadcrumb {
 
 
 
-/* FORMULIER  */
+/* FORMULIER PAGINA */
 .gridForm {
     display: grid;
     grid-template-columns: 2fr 8fr 2fr;
@@ -576,7 +567,6 @@ textarea:required {
 #aanmeldForm textarea:valid {
     border: 1px solid green;
 }
-
 form h3 {
     text-align: center;
     text-transform: uppercase;
@@ -587,6 +577,7 @@ form h3 {
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
 }
+/* END FORMULIER  */
 
 
 /* DETAIL PAGINA */
@@ -678,8 +669,6 @@ form h3 {
 .relatedProjects h2 {
     margin-bottom: 2rem;
 }
-
-
 .map {
     display: flex;
     flex-direction: column;
@@ -709,6 +698,7 @@ header.smallHeader {
     flex-direction: column;
 }
 /* END OVERIGE PAGINA  */
+
 
 
 /* CONTACT */
@@ -798,10 +788,6 @@ details div {
 details:last-of-type {
     margin-bottom: 4rem;
 }
-/* input:invalid {
-    border: 1px solid red;
-} */
-
 /* END FAQ PAGINA */
 
 
@@ -833,7 +819,6 @@ footer ul {
 footer ul li {
     margin-bottom: .5rem;
 }
-
 .socials {
     font-size: 1.5rem;
     display: flex;
@@ -842,6 +827,9 @@ footer ul li {
     gap: 1rem;
 }
 /* END FOOTER */
+
+
+
 
 
 

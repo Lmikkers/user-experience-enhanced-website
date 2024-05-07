@@ -33,7 +33,13 @@
     
                         <article>
                             <% if (service.image) { %>
-                                <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
+                                
+                                <picture>
+                                    <source srcset="https://fdnd-agency.directus.app/assets/<%= service.image %>?format=avif" type="image/avif">
+                                    <source srcset="https://fdnd-agency.directus.app/assets/<%= service.image %>?format=webp" type="image/webp">
+                                    <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>" alt="<%= service.title %> Image">
+                                </picture>
+
                             <% } %>
                             
                             <div class="cardContent">

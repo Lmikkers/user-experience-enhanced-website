@@ -12,9 +12,8 @@ import fetchJson from './helpers/fetch-json.js'
 
 // Maak een nieuwe express app aan
 const app = express()
-
 const baseUrl = 'https://fdnd-agency.directus.app/'
-
+const apiUrl = 'https://fdnd-agency.directus.app/items/dh_services'
 const likes = []
 
 // Stel ejs in als template engine
