@@ -16,6 +16,7 @@ form.addEventListener('submit', function(event) {
 
 	// Waarschijnlijk wil je op deze plek ook een loading state
 	// maken, maar daar gaan we volgende week mee aan de slag
+	form.classList.add('is-loading')
 
 	// Gebruik een client-side fetch om een POST te doen naar de server
 	// Als URL gebruiken we this.action
@@ -48,6 +49,7 @@ form.addEventListener('submit', function(event) {
 		
 
 		// Een eventuele loading state haal je hier ook weer weg
+		form.classList.remove('is-loading')
 	});
 
 	// Als alles gelukt is, voorkom dan de submit van de browser zelf
@@ -93,12 +95,13 @@ function showAanbodContent() {
 
 
 
+var likeButton = document.querySelector('.like button')
 var heartIcon = document.querySelector('.heartIcon')
 
-heartIcon.addEventListener('click', liked);
+likeButton.addEventListener('click', liked);
 
 function liked() {
 	console.log("liked");
 
-	this.classList.toggle('liked');
+	this.classList.add('liked');
 }
