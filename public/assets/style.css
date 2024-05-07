@@ -761,8 +761,9 @@ details:last-of-type {
 footer {
     width: 100%;
     padding: 2rem 0;
-    background-color: #e7e7e7; 
-    color: #646464;
+    border-top: 1px solid var(--lightBackground);
+    background-color: #FFF; 
+    color: var(--fontColor);
 }
 footer a {
     color: #646464;
