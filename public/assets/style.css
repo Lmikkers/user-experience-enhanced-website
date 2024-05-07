@@ -18,8 +18,9 @@ select {
     --fontColorMedium: #7b7b7b;
     --fontColorLight: #b5b5b5;
 
-    --mainColor: #f29338;
-    --mainColorHover: #d78131;
+    /* --mainColor: #f29338; */
+    --mainColor: #3D5737;
+    --mainColorHover: #2b3f26;
 
     --lightBackground: #efefef;
 }
@@ -125,7 +126,8 @@ a.btn {
     transition: 0.5s ease;
 }
 a.btn:hover {
-    background-color: var(--mainColor);
+    border-color: var(--mainColorHover);
+    background-color: var(--mainColorHover);
     color: white;
 }
 button.btn {
@@ -289,7 +291,8 @@ blockquote {
 }
 /* END BLOCKQUOTE */
 
-h3.type {
+h3.type,
+h2.type {
     margin-top: 3rem;
 }
 article span {
@@ -348,6 +351,10 @@ article span {
     margin-bottom: .5rem;
     text-transform: unset;
     font-weight: unset;
+}
+
+.services .mTop {
+    margin-top: 4rem;
 }
 
 .cardContent .date {
@@ -819,12 +826,18 @@ footer ul {
 footer ul li {
     margin-bottom: .5rem;
 }
-.socials {
-    font-size: 1.5rem;
+footer ul.socials li {
+    margin-bottom: 0;
+}
+.socials,
+.socials a {
     display: flex;
     flex-direction: row;
-    justify-content: baseline;
-    gap: 1rem;
+    align-items: center;
+    gap: .75rem;
+}
+.socials svg {
+    font-size: 1.5rem;
 }
 /* END FOOTER */
 

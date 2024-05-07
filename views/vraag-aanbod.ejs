@@ -13,7 +13,7 @@
     <section class="services container">
         
         <section class="vraagContent">
-            <h3 class="type">Vraag</h3>
+            <h2 class="mTop">Vraag</h2>
 
             <div class="items">
 
@@ -24,7 +24,7 @@
 
 
         <section>
-            <h3 class="type">Aanbod</h3>
+            <h2 class="mTop">Aanbod</h2>
             
             <div class="items">
                 <% services.forEach(function(service) { %>
@@ -33,7 +33,7 @@
     
                         <article>
                             <% if (service.image) { %>
-                                
+
                                 <picture>
                                     <source srcset="https://fdnd-agency.directus.app/assets/<%= service.image %>?format=avif" type="image/avif">
                                     <source srcset="https://fdnd-agency.directus.app/assets/<%= service.image %>?format=webp" type="image/webp">

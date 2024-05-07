@@ -9,11 +9,13 @@
         </div>
     </article>
     <div>
-        <!-- Nu heeft de div een background image dit nog veranderen naar de img tag zodat dit dynamisch kan met de api data -->
         <picture>
-            <source srcset="/assets/images/deHallenGreen.png?format=avif" type="image/avif">
-            <source srcset="/assets/images/deHallenGreen.png?format=webp" type="image/webp">
-            <img src="/assets/images/deHallenGreen.png" alt="Foto van de Hallen Image">
+            <!-- Gebruik de .avif, als je dit type kent -->
+            <source srcset="/assets/images/deHallenGreen-min.png?format=avif" type="image/avif">
+            <!-- Gebruik de .webp, als je dat type kent -->
+            <source srcset="/assets/images/deHallenGreen-min.png?format=webp" type="image/webp">
+            <!-- En als je beide niet kent, of geen idee hebt wat <source> betekent, doe dan gewoon dit -->
+            <img src="/assets/images/deHallenGreen-min.png" alt="Foto van de Hallen Image">
         </picture>
 
     </div>
