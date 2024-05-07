@@ -951,7 +951,7 @@ footer ul.socials li {
         display: flex;
     }
     nav ul li a {
-        color: var(--fontColor);
+        color: var(--lightBackground);
         text-decoration: none;
         text-transform: uppercase;
         transition: ease-in-out .25s;
@@ -959,7 +959,7 @@ footer ul.socials li {
         padding: 1rem;
     }
     nav ul li a:hover {
-        color: var(--fontHoverColor);
+        color: var(--fontColorLight);
         border: unset;
     }
     nav ul li a.active {
