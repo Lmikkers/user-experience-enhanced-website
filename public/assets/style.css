@@ -145,7 +145,7 @@ button.btn {
     text-align: center;
     letter-spacing: 2px;
     
-    transition: 0.5s ease;
+    transition: 0.5s ease-out;
     cursor: pointer;
 }
 button.btn:hover {

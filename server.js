@@ -1,7 +1,5 @@
 console.log('Hier komt je server voor Sprint 10. Gebruik uit Sprint 9 alleen de code die je mee wilt nemen.')
 
-console.log('Hier komt je server')
-
 // Importeer het npm pakket express uit de node_modules map
 import express from 'express'
 
@@ -30,7 +28,6 @@ app.use(express.urlencoded({extended: true}))
 
 
 // Routes voor de amsterdam buurt initiatieven
-
 // Homepage 
 app.get('/', function(request, response) {
 	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
@@ -40,10 +37,40 @@ app.get('/', function(request, response) {
 		})
 	});
 })
-// Contact pagina 
-app.get('/contact', function(request, response) {
-	response.render('contact')
+
+// Vraag en aanbod pagina 
+app.get('/vraag-aanbod', function(request, response) {
+
+	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
+		response.render('vraag-aanbod', {services: servicesDataUitDeAPI.data})
+	});
+	
 })
+// Vraag en aanbod detail(id) pagina 
+app.get('/vraag-aanbod/:serviceId', function(request, response) {
+	fetchJson('https://fdnd-agency.directus.app/items/dh_services?filter={"id":' + request.params.serviceId + '}').then((serviceDetail) => {
+		response.render('service', {service: serviceDetail.data[0]})
+	})
+})
+
+// Opdracht aanmelden pagina
+// Weet nog niet welke api ik in moet laden > hier nog naar kijken
+app.get('/opdracht-aanmelden', function(request, response) {
+
+	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
+		response.render('opdracht-aanmelden', {services: servicesDataUitDeAPI.data})
+	});
+	
+})
+// De formulier pagina van de opdracht aanmelden
+app.get('/opdracht-aanmelden/formulier', function(request, response) {
+
+	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
+		response.render('formulier', {services: servicesDataUitDeAPI.data})
+	});
+	
+})
+
 // About pagina 
 app.get('/about', function(request, response) {
 	response.render('about')
@@ -53,11 +80,16 @@ app.get('/faq', function(request, response) {
 	response.render('faq')
 })
 
+// Contact pagina 
+app.get('/contact', function(request, response) {
+	response.render('contact')
+})
+
+
 
 
 // POST ROUTE VOOR DE HOMEPAGE
 app.post('/', function(request, response){
-
 	// Haal eerst de huidige gegevens voor deze service op, uit de WHOIS API
 	fetchJson(`${baseUrl}items/dh_services/${request.body.id}`).then(({ data }) => {
 		// Stap 2: Sla de nieuwe data op in de API
@@ -80,51 +112,8 @@ app.post('/', function(request, response){
 		
 		})
 	  })
-
 })
 
-
-
-
-
-
-
-
-
-// Vraag en aanbod pagina 
-app.get('/vraag-aanbod', function(request, response) {
-
-	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
-		response.render('vraag-aanbod', {services: servicesDataUitDeAPI.data})
-	});
-	
-})
-
-// Vraag en aanbod detail(id) pagina 
-app.get('/vraag-aanbod/:serviceId', function(request, response) {
-	fetchJson('https://fdnd-agency.directus.app/items/dh_services?filter={"id":' + request.params.serviceId + '}').then((serviceDetail) => {
-		response.render('service', {service: serviceDetail.data[0]})
-	})
-})
-
-// Opdracht aanmelden pagina
-// Weet nog niet welke api ik in moet laden > hier nog naar kijken
-app.get('/opdracht-aanmelden', function(request, response) {
-
-	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
-		response.render('opdracht-aanmelden', {services: servicesDataUitDeAPI.data})
-	});
-	
-})
-
-// De formulier pagina van de opdracht aanmelden
-app.get('/opdracht-aanmelden/formulier', function(request, response) {
-
-	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
-		response.render('formulier', {services: servicesDataUitDeAPI.data})
-	});
-	
-})
 
 
 // Stel het poortnummer in waar express op moet gaan luisteren
