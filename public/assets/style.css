@@ -407,7 +407,8 @@ form.like span {
     margin: unset;
 }
 .heartIcon {
-    fill: #FF7A6B;
+    /* fill: #FF7A6B; */
+    fill: var(--lightBackground);
     transition: .2s ease;
 }
 #groupHeart:hover .heartIcon,
